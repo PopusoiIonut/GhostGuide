@@ -18,11 +18,17 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>GhostGuide uses your location in the background to detect invisible tripwires around historical monuments.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>GhostGuide needs to see where you are to find nearby stories.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
 		<string>location</string>
 	</array>
+	<key>UILaunchScreen</key>
+	<dict/>
 	<key>UIRequiresFullScreen</key>
 	<true/>
 </dict>

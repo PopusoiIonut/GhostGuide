@@ -255,9 +255,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = M9NL4PJ9AL;
 				INFOPLIST_FILE = Sources/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "GhostGuide uses your location in the background to detect invisible tripwires around historical monuments.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "GhostGuide needs to see where you are to find nearby stories.";
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -277,9 +274,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = M9NL4PJ9AL;
 				INFOPLIST_FILE = Sources/Info.plist;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "GhostGuide uses your location in the background to detect invisible tripwires around historical monuments.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "GhostGuide needs to see where you are to find nearby stories.";
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
