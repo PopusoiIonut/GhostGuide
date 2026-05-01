@@ -26,13 +26,14 @@ class GeofenceManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.pausesLocationUpdatesAutomatically = false
+        locationManager.allowsBackgroundLocationUpdates = true
         
         setupAudioSession()
     }
     
     private func setupAudioSession() {
         do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .spokenAudio, options: [.duckOthers])
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .spokenAudio, options: [.duckOthers, .allowBluetoothA2DP])
             try AVAudioSession.sharedInstance().setActive(true)
         } catch {
             print("Failed to set up audio session: \(error.localizedDescription)")
@@ -56,11 +57,14 @@ class GeofenceManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
-        userLocation = location.coordinate
         
-        // If we don't have active POIs yet, fetch them for this location
-        if activePOIs.isEmpty {
-            fetchWikipediaPOIs(near: location.coordinate)
+        DispatchQueue.main.async {
+            self.userLocation = location.coordinate
+            
+            // If we don't have active POIs yet, fetch them for this location
+            if self.activePOIs.isEmpty {
+                self.fetchWikipediaPOIs(near: location.coordinate)
+            }
         }
     }
     

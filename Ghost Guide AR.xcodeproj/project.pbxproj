@@ -18,6 +18,7 @@
 		1AA308C2FE547696BA8711A2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		52AC4B5E265F5EB034251F1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7164A1FA2401C488E1C8058F /* GhostGuideApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostGuideApp.swift; sourceTree = "<group>"; };
+		97FD70C7052BD17CE080042D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9818ACAA35AA565A4E096B2F /* GeofenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -45,6 +46,7 @@
 				1AA308C2FE547696BA8711A2 /* ContentView.swift */,
 				9818ACAA35AA565A4E096B2F /* GeofenceManager.swift */,
 				7164A1FA2401C488E1C8058F /* GhostGuideApp.swift */,
+				97FD70C7052BD17CE080042D /* Info.plist */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -252,7 +254,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = M9NL4PJ9AL;
-				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "GhostGuide uses your location in the background to detect invisible tripwires around historical monuments.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "GhostGuide needs to see where you are to find nearby stories.";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -274,7 +276,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = M9NL4PJ9AL;
-				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "GhostGuide uses your location in the background to detect invisible tripwires around historical monuments.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "GhostGuide needs to see where you are to find nearby stories.";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

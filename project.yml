@@ -5,9 +5,14 @@ targets:
     platform: iOS
     deploymentTarget: "16.0"
     sources: [Sources]
+    info:
+      path: Sources/Info.plist
+      properties:
+        UIBackgroundModes:
+          - audio
+          - location
     settings:
       base:
-        GENERATE_INFOPLIST_FILE: YES
         DEVELOPMENT_TEAM: M9NL4PJ9AL
         PRODUCT_BUNDLE_IDENTIFIER: com.yourcompany.GhostGuideAR
         INFOPLIST_KEY_UILaunchScreen_Generation: YES
