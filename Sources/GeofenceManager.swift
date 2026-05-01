@@ -2,6 +2,8 @@ import Foundation
 import CoreLocation
 import AVFoundation
 import UIKit
+import Combine
+import SwiftUI
 
 struct POI: Identifiable {
     let id = UUID()
