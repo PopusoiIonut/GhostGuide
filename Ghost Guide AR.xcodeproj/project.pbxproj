@@ -263,7 +263,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.GhostGuideAR;
+				PRODUCT_BUNDLE_IDENTIFIER = com.popusoiionut.GhostGuideAR;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -285,7 +285,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.GhostGuideAR;
+				PRODUCT_BUNDLE_IDENTIFIER = com.popusoiionut.GhostGuideAR;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
