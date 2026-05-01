@@ -15,6 +15,7 @@ targets:
         NSLocationAlwaysAndWhenInUseUsageDescription: "GhostGuide uses your location in the background to detect invisible tripwires around historical monuments."
         NSLocationWhenInUseUsageDescription: "GhostGuide needs to see where you are to find nearby stories."
         UILaunchScreen: {}
+        ITSAppUsesNonExemptEncryption: false
     settings:
       base:
         DEVELOPMENT_TEAM: M9NL4PJ9AL
