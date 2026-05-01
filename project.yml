@@ -11,6 +11,7 @@ targets:
         UIBackgroundModes:
           - audio
           - location
+        UIRequiresFullScreen: YES
     settings:
       base:
         DEVELOPMENT_TEAM: M9NL4PJ9AL

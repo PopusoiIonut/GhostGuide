@@ -23,5 +23,7 @@
 		<string>audio</string>
 		<string>location</string>
 	</array>
+	<key>UIRequiresFullScreen</key>
+	<true/>
 </dict>
 </plist>
