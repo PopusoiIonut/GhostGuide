@@ -4,6 +4,7 @@ import AVFoundation
 import UIKit
 import Combine
 import SwiftUI
+import UserNotifications
 
 struct POI: Identifiable {
     let id = UUID()
@@ -26,7 +27,10 @@ class GeofenceManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.pausesLocationUpdatesAutomatically = false
-        locationManager.allowsBackgroundLocationUpdates = true
+        
+        // We no longer require persistent location updates in the background.
+        // Geofencing is handled by the system and doesn't need this flag.
+        locationManager.allowsBackgroundLocationUpdates = false
         
         setupAudioSession()
     }
@@ -116,7 +120,7 @@ class GeofenceManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     private func setupGeofence(for poi: POI) {
-        let region = CLCircularRegion(center: poi.coordinate, radius: 50.0, identifier: poi.title)
+        let region = CLCircularRegion(center: poi.coordinate, radius: 100.0, identifier: poi.title)
         region.notifyOnEntry = true
         region.notifyOnExit = false
         locationManager.startMonitoring(for: region)
@@ -127,13 +131,31 @@ class GeofenceManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         
         // Find matching POI
         if let poi = activePOIs.first(where: { $0.title == circularRegion.identifier }) {
+            sendNotification(for: poi)
             speak(poi: poi)
         }
+    }
+    
+    private func sendNotification(for poi: POI) {
+        let content = UNMutableNotificationContent()
+        content.title = "Ghost Sighted: \(poi.title)"
+        content.body = "You have entered a haunted area. Listening to the story..."
+        content.sound = .default
+        
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
+        UNUserNotificationCenter.current().add(request)
     }
     
     private func speak(poi: POI) {
         DispatchQueue.main.async {
             self.currentlyPlaying = poi.title
+        }
+        
+        // Reactivate audio session to ensure it's ready for background playback
+        do {
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            print("Failed to reactivate audio session: \(error)")
         }
         
         let utterance = AVSpeechUtterance(string: poi.summary)

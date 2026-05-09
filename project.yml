@@ -10,7 +10,6 @@ targets:
       properties:
         UIBackgroundModes:
           - audio
-          - location
         UIRequiresFullScreen: YES
         NSLocationAlwaysAndWhenInUseUsageDescription: "GhostGuide uses your location in the background to detect invisible tripwires around historical monuments."
         NSLocationWhenInUseUsageDescription: "GhostGuide needs to see where you are to find nearby stories."
