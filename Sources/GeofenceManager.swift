@@ -16,6 +16,7 @@ struct POI: Identifiable {
 class GeofenceManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     private let locationManager = CLLocationManager()
     private let synthesizer = AVSpeechSynthesizer()
+    private var ambiencePlayer: AVAudioPlayer?
     
     @Published var activePOIs: [POI] = []
     @Published var isTracking = false
@@ -37,6 +38,8 @@ class GeofenceManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     private func setupAudioSession() {
         do {
+            // Using .duckOthers ensures that our background ambience will get quieter 
+            // when the TTS speaks, and it also plays nicely with other apps.
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .spokenAudio, options: [.duckOthers, .allowBluetoothA2DP])
             try AVAudioSession.sharedInstance().setActive(true)
         } catch {
@@ -47,6 +50,7 @@ class GeofenceManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     func startTracking() {
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
+        playAmbience()
         isTracking = true
     }
     
@@ -56,7 +60,34 @@ class GeofenceManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             locationManager.stopMonitoring(for: region)
         }
         activePOIs.removeAll()
+        stopAmbience()
         isTracking = false
+    }
+    
+    private func playAmbience() {
+        // Look for 'ambience.mp3' or 'ambience.wav' in the main bundle
+        guard let url = Bundle.main.url(forResource: "ambience", withExtension: "mp3") ?? 
+                        Bundle.main.url(forResource: "ambience", withExtension: "wav") else {
+            print("Ambience file not found. Please add 'ambience.mp3' to project assets.")
+            return
+        }
+        
+        do {
+            ambiencePlayer = try AVAudioPlayer(contentsOf: url)
+            ambiencePlayer?.numberOfLoops = -1 // Infinite loop
+            ambiencePlayer?.volume = 0.3 // Low volume background hum
+            ambiencePlayer?.prepareToPlay()
+            ambiencePlayer?.play()
+            print("Background ambience started.")
+        } catch {
+            print("Failed to play ambience: \(error.localizedDescription)")
+        }
+    }
+    
+    private func stopAmbience() {
+        ambiencePlayer?.stop()
+        ambiencePlayer = nil
+        print("Background ambience stopped.")
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -151,7 +182,7 @@ class GeofenceManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             self.currentlyPlaying = poi.title
         }
         
-        // Reactivate audio session to ensure it's ready for background playback
+        // Ensure audio session is active
         do {
             try AVAudioSession.sharedInstance().setActive(true)
         } catch {
