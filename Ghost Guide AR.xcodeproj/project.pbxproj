@@ -11,10 +11,12 @@
 		2197E0B6A32166D2DFD2B9BE /* GeofenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9818ACAA35AA565A4E096B2F /* GeofenceManager.swift */; };
 		315420031A0EA3014D564B5D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA308C2FE547696BA8711A2 /* ContentView.swift */; };
 		B5CC4C20D4E89A83D8A2FD5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52AC4B5E265F5EB034251F1F /* Assets.xcassets */; };
+		C0C64A4B9E965B3DA8F8D1E3 /* ambience.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 19E63B9A27D109685CC5746D /* ambience.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0DE905AA94523486650EB28D /* Ghost Guide AR.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "Ghost Guide AR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		19E63B9A27D109685CC5746D /* ambience.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ambience.mp3; sourceTree = "<group>"; };
 		1AA308C2FE547696BA8711A2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		52AC4B5E265F5EB034251F1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7164A1FA2401C488E1C8058F /* GhostGuideApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostGuideApp.swift; sourceTree = "<group>"; };
@@ -42,6 +44,7 @@
 		BBA4C0B1015B427C7248D01E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				19E63B9A27D109685CC5746D /* ambience.mp3 */,
 				52AC4B5E265F5EB034251F1F /* Assets.xcassets */,
 				1AA308C2FE547696BA8711A2 /* ContentView.swift */,
 				9818ACAA35AA565A4E096B2F /* GeofenceManager.swift */,
@@ -111,6 +114,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5CC4C20D4E89A83D8A2FD5C /* Assets.xcassets in Resources */,
+				C0C64A4B9E965B3DA8F8D1E3 /* ambience.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
